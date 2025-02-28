@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 function UserHome() {
+  const userData = useSelector((state) => state.auth?.userData);
+  console.log(userData.role);
+
+  const farmerStatus = userData.role === "Farmer";
+  console.log(`wwe : ${farmerStatus}`);
+
   return (
-    <div>
-       <div className="flex-1 p-10">
+    <div className="flex      min-h-screen">
+      <div className="flex-1 p-10">
         <h1 className="text-3xl font-bold">Welcome to Your Dashboard</h1>
         <div className="mt-5 grid grid-cols-3 gap-5">
           {/* Orders */}
@@ -13,10 +20,12 @@ function UserHome() {
           </div>
 
           {/* Cart */}
-          <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
-            <h3 className="text-xl font-semibold">Shopping Cart</h3>
-            <p className="text-gray-600">View items in your cart.</p>
-          </div>
+          {!farmerStatus && (
+            <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
+              <h3 className="text-xl font-semibold">Shopping Cart</h3>
+              <p className="text-gray-600">View items in your cart.</p>
+            </div>
+          )}
 
           {/* Profile */}
           <div className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
@@ -26,7 +35,7 @@ function UserHome() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default UserHome
+export default UserHome;

@@ -20,6 +20,9 @@ import UserProduct from "./components/Profile/UserProduct.jsx";
 import UserCart from "./components/Profile/UserCart.jsx";
 import UserProfile from "./components/Profile/UserProfile.jsx";
 import  Contact  from "./components/Contact/Contact.jsx";
+import AddCrop from "./components/Profile/AddCrop.jsx";
+import Cart from "./components/Cart/Cart.jsx";
+import UserOrder from "./components/Profile/UserOrder.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +54,10 @@ const router = createBrowserRouter([
         element: <LogIn />,
       },
       {
+        path:"cart",
+        element : <Cart/>
+      },
+      {
         path: "profile",
         element: <Profile />,
         children: [
@@ -63,6 +70,10 @@ const router = createBrowserRouter([
             element: <UserProduct />,
           },
           {
+            path:"addcrop",
+            element : <AddCrop/>
+          },
+          {
             path: "cart",
             element: <UserCart />,
           },
@@ -70,6 +81,11 @@ const router = createBrowserRouter([
             path: "details",
             element: <UserProfile />,
           },
+          {
+            path :"order",
+            element : <UserOrder/>
+          }
+
         ],
       },
     ],

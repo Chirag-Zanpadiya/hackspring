@@ -22,7 +22,7 @@ function UserProduct() {
     },
   ];
   return (
-    <div className="p-10">
+    <div className="p-10 justify-center items-center">
       <h1 className="text-3xl font-bold mb-5">
         Welcome to Your Home Dashboard
       </h1>

@@ -11,8 +11,9 @@ function Signup() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const [error, setError] = useState("");
+  const selectRole = watch("role");
 
   //   TODO: DB walo ka kam hai ye
   const createAcc = async (data) => {
@@ -31,22 +32,20 @@ function Signup() {
       //     navigate("/cart");
       //   }
       //   TODO: me idhar chahata hu ki user login hone ke bad turant card wala component ke chala jaye
-      //       
-      // 
-      // 
-        //  dispatch(login(data));
+      //
+      //
+      //
+      //  dispatch(login(data));
       //    console.log(` UserData : ${userdata.userName}`);
       //    navigate("/cart");
-    } 
-    
-    catch (error) {
+    } catch (error) {
       setError(error.message);
     }
   };
 
   return (
     <>
-      <div className="flex items-center min-h-screen mt-14 bg-[#F3F4F6] justify-center">
+      <div className="flex items-center min-h-screen mt-20 py-4  bg-[#F3F4F6] justify-center">
         <div className="mx-auto w-full max-w-lg bg-gray-200 rounded-xl p-10 border border-black/10">
           {/* logo ke liye hai */}
           <div className="mb-2 flex items-center justify-center">
@@ -87,12 +86,39 @@ function Signup() {
                 <option value="Farmer">Farmer</option>
                 <option value="Customer">Customer</option>
               </select>
-
               <Input
                 label="User Name"
                 placeholder=""
                 type="text"
                 {...register("userName", {
+                  required: true,
+                })}
+              />
+
+                <Input
+                  placeholder=""
+                  label="Mobile No"
+                  type="number"
+                  {...register("mobileno", {
+                    required: true,
+                  })}
+                />
+              {selectRole === "Farmer" && (
+                <Input
+                  placeholder=""
+                  label="UPI ID"
+                  type="text"
+                  {...register("upiid", {
+                    required: true,
+                  })}
+                />
+              )}
+
+              <Input
+                placeholder=""
+                label="Address"
+                type="text"
+                {...register("address", {
                   required: true,
                 })}
               />
@@ -111,7 +137,6 @@ function Signup() {
                   },
                 })}
               />
-
               <Input
                 label="Password"
                 placeholder=""
@@ -127,7 +152,6 @@ function Signup() {
                   },
                 })}
               />
-
               <button
                 type="submit"
                 className="hover:cursor-pointer text-white bg-blue-700 hover:bg-blue-800 
@@ -137,7 +161,6 @@ function Signup() {
               >
                 SignUp
               </button>
-
               <p className="mt-2 text-center text-base text-black/60">
                 Already have an account?&nbsp;
                 <Link

@@ -6,7 +6,7 @@ function UserCart() {
       { id: 2, name: "Organic Carrots", price: "$1.49/kg", quantity: 1 },
     ];
     return (
-      <div className="p-10">
+      <div className="p-10 ">
         <h1 className="text-3xl font-bold mb-5">Your Shopping Cart</h1>
 
         {cartItems.length === 0 ? (

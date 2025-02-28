@@ -18,7 +18,7 @@ function UserProfile() {
   };
 
   return (
-    <div className="p-10 mx-auto bg-white rounded-xl shadow-xl mt-10 border border-gray-200 w-full max-w-md">
+    <div className="p-10 mx-auto ml-0 md:ml-[400px] mt-8 mb-8 bg-white rounded-xl shadow-xl  border justify-center items-center border-gray-200 w-full max-w-md">
       <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Profile Settings</h2>
 
       {/* Profile Picture */}
